@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html>
+	<head lang="en-US">
+		<meta charset="UTF-8">
+		<title>Number Guesser - my trial</title>
+		
+		<style type="text/css"> 
+			h1 {
+				text-align: center;	
+			}
+			fieldset {
+				width: 600 px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+		</style>
+		
+		<script type="text/javascript">
+			
+			function checkGuess() {
+				var correctValue = 38;
+				var output = document.getElementById("output");
+				var txtGuess = document.getElementById("txtGuess");
+				var guessValue = parseInt(txtGuess.value);
+				
+				if(correctValue == guessValue) {
+					output.innerHTML = "<BR>Wow! you guess it right";
+				}
+				else if (correctValue > guessValue) {
+					output.innerHTML = "<BR>Oops your guess is low";
+				}
+				else if (correctValue < guessValue) {
+					output.innerHTML = "<BR>Oops your guess is high";
+				}
+				else {
+					output.innerHTML = "<BR>This should not have happened";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1> Number Guesser</h1>
+		<form action="">
+			<fieldset>
+				<p>I am thinking of a number between 0-100. Guess my number, and I will tell you if you are too high, too low, or correct</p>
+				<label for="txtGuess">Your Guess</label>
+				<input type="text" id="txtGuess"/>
+				<button type="button" onclick="checkGuess()"> check your guess </button>
+			</fieldset>
+		</form> 
+		<div id="output"> </div>
+	</body>
+</html>
