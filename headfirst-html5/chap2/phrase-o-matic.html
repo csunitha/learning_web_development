@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html>
+	<head> 
+		<title>Pharse-o-matic</title>
+		<meta charset="UTF-8">
+		<style type="text/css">
+			body {
+				font-family: Verdana, Helvetica, sans-serif;
+			}
+		</style>
+		<script type="text/javascript" > 
+			function makePhrases() {
+				var words1 = ["24/7", "multi-tier", "B-2-B", "win-win", "cutting edge"];
+				var words2 = ["empowered", "value added", "oriented" , "focussed", "aligned"];
+				var words3 = ["process", "solution", "technology", "strategy", "tipping point"];
+				
+				var rand1 = Math.floor(Math.random() * words1.length);
+				var rand2 = Math.floor(Math.random() * words2.length);
+				var rand3 = Math.floor(Math.random() * words3.length);
+				
+				var phrase_value = words1[rand1] + " " + words2[rand2] + " " + words3[rand3];
+				var phrase = document.getElementById("phrase");
+				phrase.innerHTML = phrase_value;
+				
+			}
+			window.onload = makePhrases;
+		</script>
+	</head>
+	<body>
+	
+		<h1> The phrase of the century !!</h1>
+		<p id="phrase"> </p>
+		
+	</body>
+</html>

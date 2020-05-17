@@ -1,0 +1,23 @@
+<!doctype html>
+
+<html>
+	<head> 
+		<title>Planets</title>
+		<meta charset="UTF-8">
+		<script type="text/javascript"> 
+			function afterLoading() {
+				var green = document.getElementById("greenplanet");
+				green.innerHTML = "Green is well";
+			}
+			window.onload = afterLoading;
+		</script>
+	</head>
+	<body>
+		<h1> Green Planet</h1>
+		<p id="greenplanet"> All well </p>
+		<h1> Red Planet</h1>
+		<p id="redplanet"> Red is well</p>
+		<h1> Blue Planet</h1>
+		<p id="blueplanet"> Blue is well too</p>
+	</body>
+</html>
