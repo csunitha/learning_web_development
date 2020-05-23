@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+	<!-- https://stackoverflow.com/questions/61966662/i-am-not-able-to-see-the-changes-of-output-when-i-try-giving-the-input --> 
+	<!-- Issue I tried to give input but output is not showing: -->
+    <script type="text/javascript">
+      function my() {
+		//Answer: Need to use .value not .innerHTML for <input /> tags:
+        //$str = document.getElementById("j").innerHTML;
+        $str = document.getElementById("j").value;
+        
+		document.getElementById("demo").innerHTML = $str;
+        return $str;
+      }
+    </script>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <input type="text" name="j" id="j" onkeyup="my()" />
+  </body>
+</html>

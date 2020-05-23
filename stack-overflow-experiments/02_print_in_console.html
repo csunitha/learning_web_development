@@ -1,0 +1,113 @@
+<!-- 
+I am having a id and a text in the html page and I am trying to retrieve them in the javascript and print them in console the code snippet 
+
+Here I am having three users at the left and when I click on one user the user id and and input box is displayed with a send button so here I want the text message and id when I click the send button in the console here I am getting text and undefined in the place of id can anyone help me out from this
+-->
+<html>
+
+<head>
+  <link href="bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+  <script src="jquery.min.js"></script>
+  
+  <link type="text/css" rel="stylesheet" href="02_print_in_console.css">
+
+  <link href="font-awesome.css" type="text/css" rel="stylesheet">
+
+  <div class="container">
+    <h3 class=" text-center">Messaging</h3>
+    <div class="messaging">
+      <div class="inbox_msg">
+        <div class="inbox_people">
+          <div class="headind_srch">
+            <div class="recent_heading">
+              <h4>Recent</h4>
+            </div>
+            <div class="srch_bar">
+              <div class="stylish-input-group">
+                <input type="text" class="search-bar" placeholder="Search">
+                <span class="input-group-addon">
+                  <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
+                </span> </div>
+            </div>
+          </div>
+
+          <div class="inbox_chat">
+            <div class="chat_list active_chat">
+              <div class="chat_people">
+
+                <div class="chat_ib">
+                  <h5><a href="#" class="person_name" id="1">satya <span class="chat_date"></span></a></h5>
+                  
+                  <p></p>
+                </div>
+
+              </div>
+            </div>
+            <div class="chat_list active_chat">
+              <div class="chat_people">
+
+                <div class="chat_ib">
+                  <h5><a href="#" class="person_name" id="2">ferin <span class="chat_date"></span></a></h5>
+                  
+                  <p></p>
+                </div>
+
+              </div>
+            </div>
+            <div class="chat_list active_chat">
+              <div class="chat_people">
+
+                <div class="chat_ib">
+                  <h5><a href="#" class="person_name" id="3">laxmi<span class="chat_date"></span></a></h5>
+                  
+                  <p></p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mesgs">
+          <div class="msg_history">
+            <p id="insertName"></p>
+            <div class="type_msg">
+              <div class="input_msg_write">
+                <input type="text" id="write_msg" placeholder="Type a message" />
+                <button id="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </body>
+	
+	<script>
+		const personArr = document.querySelectorAll(".person_name");
+		
+		personArr.forEach(item => {
+				item.addEventListener('click',() => {
+				document.querySelector("#insertName").innerText = "";
+				document.querySelector("#insertName").innerText = `${item.innerText}`;
+				document.querySelector("#insertName").innerText =`${item.id}`;
+				
+			  })
+			})
+		  var form = document.getElementById('msg_send_btn');
+
+		form.onclick = function(event) {
+			event.preventDefault();
+			var input = document.getElementById("write_msg").value;
+			// var id = document.getElementById("insertName").value ///NON WORKING Code - change done is .value to .innerText 
+			var id= document.getElementById("insertName").innerText;  
+			console.log("Message is :  " +  input);
+			console.log("ID :  " + id);
+		}
+	</script>
+
+</html>
+

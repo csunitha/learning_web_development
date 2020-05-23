@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title>Red ball bouncing</title>
+    <script type="text/javascript" src="simpleGame.js">
+    </script>
+    <script type="text/javascript">
+        let scene;
+        let ball;
+        function init() {
+          scene = new Scene();
+          ball = new Sprite(scene, "redball.png", 30,30);
+          ball.setMoveAngle(150);
+          ball.setSpeed(3);
+          scene.start();
+        }
+        function update() {
+          scene.clear();
+          ball.update();
+        }
+    </script>
+  </head>
+  <body onload=init()>
+
+  </body>
+</html>

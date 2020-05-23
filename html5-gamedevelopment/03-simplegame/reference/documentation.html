@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "simpleGameDoc.css" />
+
+</head>
+<body>
+<div id = "content">
+  <h1 class = "shadow">SimpleGame.js Documentation</h1>
+  <div class = "section shadow">
+    <h2>Overview of SimpleGame</h2>
+    
+    <p>
+    The simpleGame.js library was designed with a few key features in mind:
+    </p>
+    <ul>
+      <li><strong>Ease of learning</strong> – Perhaps the most important design goal was to create a library that is easy to learn and use. The library has a relatively small number of objects, and it strives to use straightforward language whenever possible</li>
+      <li><strong>Hiding complexity</strong> – Game programming often requires a great deal of complexity. HTML5 game development can be especially tricky. Many of the concepts needed in a game engine (collision detection, sound effects, vector projection) involve complex math and programming, which is hidden from the game developer when possible.</li>
+      <li><strong>Platform-agnostic</strong> – The library was designed to work as well as possible on many platforms. It works on most modern browsers as well as mobile devices.</li>
+      <li><strong>Mobile-friendly</strong> – The library aims to support not only traditional desktop web browsers, but also mobile devices like cell phones and tablets.</li>
+      <li><strong>Reasonably powerful</strong> – On a modern computer, the library can perform about as well as many other web and mobile gaming platforms, including Flash. </li>
+      <li><strong>Object-oriented</strong> – the library uses objects throughout, with a consistent scheme. All the main features are supported by an appropriate object, which has properties and methods which allow you to manipulate the object.</li>
+      <li><strong>Free and open source</strong> – The simpleGame.js library is available for anyone to use for free. You can also modify the library and add your own features.</li>
+    </ul>
+  </div>
+  
+  <div class = "section shadow">
+
+    <h2>The Scene Object</h2>
+    <p>The central object of the simpleGame library is the Scene. When you create a Scene object, two primary things happen: The Scene creates a canvas tag to hold all the visual aspects of the game, and it begins a timing loop that causes a function called update() to run twenty times per second. </p>
+    <p>You should create the Scene object variable as a global variable so it is available to all functions. You'll normally initialize Scene as the first line of your init() function. The Scene constructor requires no parameters. The Scene object is first described in chapter 5, with more features described throughout the book.</p>
+  </div>
+  
+  <div class = "section shadow">
+    <h2>Primary properties of the Scene object</h2>  
+    <p>The Scene object has a number of interesting properties you can read directly:</p>
+    <ul> 
+       <li><strong>touchable</strong> – The touchable property returns true when the browser detects a touch screen, and false when there is no touch screen. This is an ideal way to determine if the game is currently being run on a mobile device. You should never change this property directly. Just use it to determine if the current device has a touch interface (usually with an if statement.)</li>
+       <li><strong>canvas</strong> – The canvas property provides a reference to the canvas element produced by the scene. You can directly modify the canvas element (changing its size, for example,) but it's much better to use the various methods provided for this purpose.  </li>
+       <li><strong>height, width</strong> – These two properties show the current height and width of the game area. Use the setSize() method to assign new values to height and width</li>
+       <li><strong>top, left</strong> – These two properties are used to describe the current position of the playing area's top-left corner. Use the setPosition() method to change the position of the game surface.</li>
+    </ul>
+  </div>
+  
+  <div class = "section shadow">
+    <h2>Important methods of the Scene class</h2>
+    <p>Like most objects, the Scene object is controlled with methods, which are used to manage the scene and change its behavior and appearance.</p>
+    <ul>
+      <li><strong>start()</strong> - The start() method is used to begin the game. Normally you'll call the start() method at the end of the page's init() function, triggering the beginning of the game. The start() method adds the canvas to the page and begins the timing loop, which causes update() to be called twenty times per second. See chapter 5 for more information on initializing a scene.</li>
+      <li><strong>clear()</strong> - This method clears the canvas, drawing the background color (see setBackground() to change the background color.) Typically you'll call clear() at the beginning of the update() function. Failing to clear the scene can lead to trails of sprites drawn on the playing surface. Chapter 5 describes how to use the clear() method</li>
+      <li><strong>stop()</strong> - The stop() function is used to end the game. The timing loop is no longer called, but the screen pauses. If you want to clear the screen, call clear() before stopping the game. If you want to reset the game, the easiest way is to reload the page: document.location.href = “” You can learn more about stopping and restarting the game in chapter 7.</li>
+      <li><strong>setSize(width, height)</strong> – This method changes the size to the given width and height (measured in pixels) It may be necessary to adjust the size to make your game work well on mobile devices. This function is illustrated in chapter 9.</li>
+      <li><strong>setPos(left, top)</strong> – This method changes the position of the game surface to the given values. </li>
+      <li><strong>setSizePos(width, height, left, top)</strong> – A utility function which allows you to change the size and position at the same time.</li>
+      <li><strong>setBG(color)</strong> - This method changes the background color of the playing area. You can use any of the normal CSS color values (named colors or hex values.) The game canvas is repainted to the indicated color every time the scene's clear() method is activated.</li>
+      <li><strong>hideCursor()</strong> - This method allows you to hide the mouse cursor. It is especially useful when the game uses mouse or touch-screen information as an input.</li>
+      <li><strong>showCursor()</strong> - The showCursor() method makes the ordinary mouse cursor visible again after being hidden by hideCursor(). The cursor methods are detailed in chapter 9.</li>
+      <li><strong>getMouseX(), getMouseY()</strong> - These two methods are used to return the position of the mouse on the game canvas. Note that these methods (unlike the Joystick variations of the same methods) compensate for the position of the canvas. Mouse and Joystick techniques are fully discussed in chapter 9.</li>
+      <li><strong>hide()</strong> - Hides the game canvas. This is useful when you want to use the game's timing loop but you don't necessarily want to show the canvas. (I used this for a few examples throughout the book when the canvas itself wasn't needed.)</li>
+      <li><strong>show()</strong> - Displays the game canvas after it has been hidden by hide()</li>
+    </ul>
+  </div>
+  
+  <div class = "section shadow">     
+    <h2>The Sprite Class</h2>
+    <p>Scenes provide the background of a game, but the other key element in simpleGame is the Sprite class. Nearly every game element is based on the sprite, so understanding what the sprite can do is the key to writing games in simpleGame. The Sprite class is first introduced in chapter 5, and it is further described throughout the book.</p>
+
+    <p>The sprite class is quite large, so the various properties and methods are broken into several different categories.</p>
+
+    <p>The sprite constructor has a number of important parameters:</p>
+    
+    <pre>mySprite = new Sprite(scene, imageFile, width, height)</pre>
+
+    <p>Each sprite should be created as a global variable, and the sprites should all be initialized in the init() method. You must indicate all the required parameters when creating a sprite:</p>
+    <ul>
+      <li><strong>scene</strong> – Sprites are always associated with a given Scene. Generally you'll create a Scene first, and then create sprites attached to that scene</li>
+      <li><strong>imageFile</strong> – This is the file name of the image the sprite will be based upon. Typically this will be a smaller image in a web-friendly format (gif, jpg, or png.) Usually you'll want to design your sprites so they face East by default. This will cause the direction properties to work as expected.</li>
+      <li><strong>width, height</strong> – these are the width and height of the sprite. </li>
+    </ul>
+  </div>
+
+  <div class = "section shadow">
+    <h2>Main properties of the Sprite</h2>
+
+    <p>The sprite has a number of properties. You can read values from these properties, but it's best not to change them directly. Instead, use the appropriate method to change the behavior or appearance of a sprite. Basic sprite methods are described in chapter 5, but you'll see more advanced techniques used throughout the book, especially in chapter 8.</p>
+    <ul>
+      <li><strong>canvas</strong> – The canvas element upon which the sprite is drawn. </li>
+      <li><strong>width, height</strong> – The width and height of the sprite. Important not only for the visual display of the element, but in collision detection</li>
+      <li><strong>cWidth, cHeight</strong> – Size of the canvas containing the element. This information can be useful when you make a custom boundary action. See checkBounds() method for more information.</li>
+      <li><strong>x, y</strong> – position of the sprite. Do not change these values directly, but use one of the many sprite motion mechanisms. However, you can use these properties to discover the current position of the sprite.</li>
+      <li><strong>dx, dy</strong>- motion of the sprite. Do not change these values directly, but you can use these properties to determine how quickly the sprite is moving vertically (dy) or horizontally (dx.)</li>
+      <li><strong>speed</strong> – You can use this property to view the speed of the sprite, but do not change it directly. Instead, use one of the speed methods described later.</li>
+    </ul>
+  </div>
+
+  <div class = "section shadow">
+    <h2>Appearance methods of the Sprite</h2>
+    <p>Use these methods to change the appearance of the Sprite element</p>
+    <ul>
+      <li><strong>changeImage(imgFile)</strong> – Changes the image to the image file. The file should be in a web-safe format, and should not be larger than the intended display size.</li>
+      <li><strong>setImage(fileName)</strong> – Another name for changeImage(). Works exactly like changeImage()</li>
+      <li><strong>update()</strong> - This method draws the sprite on the screen. Typically you will update each sprite at the end of the main program's update() function. Sprites which are updated first appear at the bottom of the screen, so if you want a sprite to appear above another sprite, update it later.  </li>
+      <li><strong>hide()</strong> - hides the sprite. The sprite will still calculate speed and position, but it will not be displayed on the screen, and it will not collide with other sprites.</li>
+      <li><strong>show()</strong> - This function displays a sprite that was hidden with the hide() method</li>
+      <li><strong>report()</strong> - This is a utility method that displays the current position, dx, dy, speeed, and angle to the debugging console. It is intended only for debugging purposes, but can be quite handy when you are trying to discover what a sprite is supposed to be doing.  </li>
+    </ul>
+  </div>
+
+  <div class = "section shadow">
+
+    <h2>Movement Methods of the Sprite</h2>
+    
+    <p>One of the most important jobs of the sprite object is to move around the screen in interesting ways. At its very essence, position is stored as an (x, y) coordinate pair. You can directly set the position of the sprite, but there are many convenience methods which give you better control of sprite motion. The basic motion format is a motion vector (dx, dy.) You can set these values directly with appropriate methods, but sprites also have speed and angle attributes which can give much more interesting behavior. In fact, a sprite has two different angle measurements, the imageAngle, and the moveAngle. The imageAngle determines which direction the sprite is facing, and the moveAngle determines the direction of motion. If you simply change the angle, you are changing both the image and movement angles at once. All angles in simpleGame are measured in degrees using normal navigation formatting, with 0 degrees pointing up and 90 degrees pointing to the right.</p>
+    <ul>
+      <li><strong>setPosition(x, y)</strong> – immediately changes the position of the sprite to the give x and y coordinates.</li>
+      <li><strong>setX(newX), setY(newY)</strong> – Allows you to change X and Y to some new value.</li>
+      <li><strong>setDX(newDX), setDY(newDY)</strong> – Change motion in X or Y axis. If you set the dx value to 5, for example, the sprite will move 5 pixels to the right every frame until the dx value is changed again. The angle and speed settings of the sprite will be effected by changes in dx and dy. (This is why you must always use functions to change dx and dy – if you change the properties directly, the speed and angle will no longer be accurate.)</li>
+      <li><strong>changeXby(newDX), changeYby(newDY)</strong> – Alternate names for setDX() and setDY()</li>
+      <li><strong>setSpeed(speed)</strong> – sets the speed to the indicated value. Speed is determined in pixels per frame. You can set speed to a positive or negative value. The speed will change immediately with this method. If you want a more realistic change in speed, use changeSpeedBy() or addVector().</li>
+      <li><strong>getSpeed()</strong> - Returns the current speed based on the current settings of dx and dy.</li>
+      <li><strong>changeSpeedBy(diff)</strong> – Changes the speed by the diff amount. A positive value will cause the sprite to speed up in the moveAngle direction, and a negative value will slow the sprite down. It is possible to attain negative speeds, which will cause the sprite to move backwards. You may want to assign top and bottom speeds to keep your sprite from moving so quickly that it is difficult to control.</li>
+      <li><strong> setImgAngle(degrees)</strong> – Changes the angle at which the sprite is drawn. DOES NOT affect the motion angle. Use this mechanism to rotate a sprite without changing its direction of travel. The degrees value should be an integer between 0 and 360, but larger and smaller values will be accepted and adapted to appropriate values. This method immediately turns to the indicated angle. Use changeImgAngleBy() for animated rotation. </li>
+      <li><strong>changeImgAngleBy(degrees)</strong> – Changes the image angle by the indicated degree measurement. Use a positive value to rotate the sprite clockwise, and a negative number to rotate counter-clockwise.  </li>
+      <li><strong>getImgAngle()</strong> - Returns the sprite's current image angle in degrees.</li>
+      <li><strong>setMoveAngle(degrees)</strong> – Immediately sets the sprite's motion angle to the indicated angle. Does not affect visual rotation of the image, so this can be used when you want to decouple the direction a sprite is pointing and the angle at which it travels (This technique is frequently used for skidding behavior, for example.)</li>
+      <li><strong>changeMoveAngleBy(degrees)</strong> – Changes the movement angle by the indicated amount. Used to modify the motion angle over time. </li>
+      <li><strong>getMoveAngle()</strong> - Returns the sprite's current motion angle in degrees.</li>
+      <li><strong>setAngle(degrees)</strong> – A utility function that sets both the image and motion angle. Used when the sprite will be traveling in the same direction it is pointing (as in most simple driving games without skidding.)</li>
+      <li><strong>changeAngleBy(degrees)</strong> – Change both the motion and image angle at the same time. Used to turn the sprite gradually.</li>
+      <li><strong>turnBy(degrees)</strong> – Another name for changeAngleBy() </li>
+      <li><strong>addVector(degrees, thrust)</strong> – A very powerful method that adds a motion vector to the current sprite. The function applies a vector in the direction indicated by degrees, and with the force indicated by thrust. Skillful use of this method can lead to many interesting physics-based behaviors. See chapter 8 for a complete examination of this flexible method, which is used for gravity, skidding, and orbits, among other things.</li>
+    </ul>
+  </div>
+
+  <div class = "section shadow">
+    <h2>Boundary methods of the sprite</h2>
+    <p>With all this movement, it isn't surprising that sprites sometimes leave the confines of the game canvas. Most boundary-handling behavior is automatic, but you can either change the default boundary-checking mechanism, or you can add your own. Note that each sprite has a different boundary-checking behavior, so you can have more than one boundary mechanism in the same game. (bullets frequently die when they leave a screen, while spacecraft may wrap around, for example.)</p>
+    <ul>
+      <li><strong>setBoundAction(action)</strong> – Determines what the sprite will do when it hits a screen boundary. The action value can be one of the following:  
+      <ul>
+        <li><strong>WRAP</strong> – The sprite will keep the same speed and angle, but will appear on the opposite of the side it left. So if a sprite leaves the left side of the screen, it will appear on the right, but the speed and direction of travel will remain the same. WRAP is the default bound action.</li>
+        <li><strong>BOUNCE</strong> – The sprite will stay in the same spot, but its direction will be reversed. If it bounces off the top or bottom of the canvas, the dy value is inverted. If it bounces off the left or right of the canvas, the dx value is inverted.</li>
+        <li><strong>STOP</strong> – The sprite's speed will be set to zero and the sprite will stay at the spot where it left the screen. It may appear only partially on- screen. If you want a stopped sprite to move again, you'll need to change its direction, position, or boundaction.</li>
+        <li><strong>DIE</strong> – The sprite will stop moving and will be hidden. It is not removed from memory, but it will no longer be displayed, nor will it register collisions.</li>
+        <li><strong>CONTINUE</strong> – The sprite will continue to travel beyond the visible canvas. This option should only be used when there is some way of getting the sprite back (as in an orbit demonstration, or when the off-screen coordinates are displayed, like in an air-traffic control simulation.) If the boundAction is set to some value the game engine does not recognize, CONTINUE will be set.</li>
+      </ul></li>
+      <li><strong>checkBounds()</strong> - The checkBounds() function automatically uses the indicated bound action. If you need a custom bound action (for example you want to wrap off the top and bottom but bounce off the sides) you can create your own checkBounds() method. However, you are then completely responsible for ensuring your method handles all the possible boundary conditions. Never call checkBounds() directly (it is already called at the appropriate moment) but overwrite it if you need some sort of fancy boundary-checking behavior.</li>
+    </ul>
+  </div>
+
+  <div class = "section shadow">
+
+    <h2>Collision methods of the Sprite</h2>
+    <p>The sprite has two main ways to check collisions. There is a standard collidesWith() method which checks for bounding-rectangle collisions. In addition, you can use the distanceTo() and angleTo() methods to get a better sense of the proximity of two sprites. Chapter 6 describes collision-detection in some detail.</p>
+    <ul>
+      <li><strong>collidesWith(sprite)</strong> – Returns true if this sprite's bounding rectangle is currently overlapping the given sprite's bounding rectangle. Note that this is a very fast collision routine, but it is not pixel-perfect. In particular, long-thin sprites will have very different collision behaviors if they are diagonal, vertical, or horizontal. If you need more uniform collision mechanism, use the distanceTo() method instead. If either sprite is invisible, a collision will not be registered.</li>
+      <li><strong>distanceTo(sprite)</strong> – Returns the distance (in pixels) between this sprite and the target sprite. Useful for boundary-circle checking. If the distance between two sprites is less than some threshold, count it as a collision. Unlike the standard collidesWith() mechanism, the distance-based collision technique works the same regardless of the sprites' orientations. This method works whether the sprites are visible or not.</li>
+      <li><strong>angleTo(sprite)</strong> – Returns the angle (in degrees) from the current sprite to the given sprite. Use this method to have a 'guided missile' that always points to a target, or to apply a gravity vector between a planet and a spacecraft. This method works whether the sprites are visible or not.</li>
+    </ul>
+  </div>
+
+  <div class = "section shadow">
+    <h2>Animation methods of the Sprite</h2>
+    <p>The simpleGame library has limited support for spritesheet animations. See chapter 8 for a description of this technique. The following methods assist with Animations:</p>
+    <ul>
+      <li><strong>loadAnimation(width, height, cellWidth, cellHeight)</strong> – Indicates that the image associated with the sprite is actually a sprite sheet. The first two parameters indicate the size of the overall sprite sheet, and the second two values indicate the width and height of a single cell within the sheet.</li>
+      <li><strong>generateAnimationCycles()</strong> - generates a series of animation cycles. Default behavior presumes each row is a new state and each column is an animation within that state. Typically rows indicate directions and columns indicate cells within the animation. </li>
+      <li><strong>renameCycles(cycleNameArray)</strong> – This method allows you to set string names to each of the cycles. Typically these will indicate directions or behaviors.</li>
+      <li><strong>setAnimationSpeed(speed)</strong> – This method indicates how quickly the animation will cycle. Setting a higher value will slow down the animation.</li>
+      <li><strong>setCurrentCycle(cycleName)</strong> – Changes the animation cycle to the one indicated by the cycle name. Normally used to change animation state.</li>
+      <li><strong>playAnimation()</strong> - begins (and repeats) the currently indicated animation.</li>
+      <li><strong>pauseAnimation()</strong> - Pauses the animation until it is re-started with a playAnimation() command.</li>
+    </ul>     
+  </div>
+
+  <div class = "section shadow">
+    <h2>Utility Classes</h2>
+    <p>In addition to the main two classes, the simpleGame library includes a number of helpful utility classes. Use these classes to add features to your game, from sound effects to mobile device interface schemes.</p>
+  </div>
+  <div class = "section shadow">
+    <h2>The Sound Object </h2>
+    <p>The sound class encapsulates the HTML5 audio object, and makes it very easy to build sound effects. When you build a sound object, you'll actually be creating an HTML5 audio object which is not displayed, but can be played with JavaScript code. Note that the sound object has the same limitations as HTML5 sound elements. Most importantly, there is no single audio format guaranteed to play on every browser. For best results, create each sound effect twice (once in .mp3 and once in .ogg format) and create a Sound object for each. Use of the Sound object is described in chapter 6.</p>
+    <ul>
+       <li><strong>sndElement = new Sound(src)</strong> – Creates a new sound object. Generally, you'll want to store the sound in a global variable. The src attribute indicates the file name of the sound. For maximum effectiveness, create two objects for each sound effect (one in mp3, one in ogg.)</li>
+      <li><strong>play()</strong> - Plays the sound effect encapsulated by the sound. </li>
+      <li><strong>showControls()</strong> - Shows the HTML5 control panel (a play button and a simple timer) for the sound effect. By default, controls are turned off. This option was added as a workaround for an issue with iPhone and iPad browsers.</li>
+    </ul>
+
+    <p>Note that the iPhone / iPad operating systems have a well-known problem playing back sound effects from JavaScript. IOS (the iPhone / iPad / iPod operating system) refuses to preload a sound, and will only load the sound effect after direct user feedback. In practice, this means you cannot load a sound in the background. However, there is a loophole. Use the sound object's showControls() method to make the HTML5 audio control panel appear for each sound. The user can then manually load each sound by playing it once. Once the sound is in memory, it will play within the game with no problems. Each time the page is reloaded, you will need to reload the sounds.</p>
+
+    <p>See Chapter 6 for complete details on how to use the sound object.</p>
+  </div>
+
+  <div class = "section shadow">
+    <h2>The Timer Object </h2>
+    <p>The timer is a simple object designed to give you an easy way to work with elapsed time. It only has two methods, and they are both quite straightforward:</p>
+    <ul>
+      <li><strong>reset()</strong> - This command resets the timer. Use it whenever you want to begin counting some amount of time.</li>
+      <li><strong>getElapsedTime()</strong> - This method returns the number of seconds since the timer was started or reset.</li>
+    </ul>     
+    <p>If you look at the source code, you'll find another method getCurrentTime() but this is only used internally, and is not likely to be useful as it is. (It returns the current time in a format that's useful for calculations, but not human-readable)</p>
+
+    <p>The timer is explained in chapter 6.</p>
+  </div>
+
+
+  <div class = "section shadow">
+    <h2>The Virtual Joystick</h2>
+    <p>One of the most interesting features of the simplegame library is its support for mobile devices. Since these devices often do not have keyboards, they rely on alternative input methods. The virtual joystick object is used to manage touchscreen input. </p>
+    <ul>
+      <li><strong>joystickName = new Joy()</strong> - Create a virtual joystick object. Normally it's best to do this after checking for the touchable interface through the scene.touchable property. However, if you create a virtual joystick and the browser cannot support it, the joystick commands will simply be ignored.</li>
+      <li><strong>getMouseX(), getMouseY()</strong> - These methods return the x and y position of the touch. If a virtual joystick is turned on, the scene's getMouseX() and getMouseY() methods will reflect the mouse's position. Note that with a real mouse, there is always a value for mouseX and mouseY. With a touch interface, there is not a meaningful value for mouseX and mouseY unless the user is currently touching the screen. Chapter 9 details the use of the touch screen and mouse.</li>
+      <li><strong>getDiffX(), getDiffY()</strong> - Returns a value indicating how much the user has moved the mouse in X or Y since initially touching the screen. This is the foundation of the virtual joystick. See chapter 9 for details on using the virtual Joystick object.</li>
+      <li><strong>virtKeys</strong> – This is an ordinary variable. If you create a variable called virtKeys and set it to true before you create a virtual joystick, the joystick will automatically act like arrow keys. This is an easy way to build a multi-platform game. Use the arrow keys as the primary input interface, but add a virtKeys interface so mobile users can replace the keys with a virtual joystick. See chapter 9 for more detail on using the virtual joystick in this way.</li>
+    </ul>
+  </div>
+
+  <div class = "section shadow">
+    <h2>The virtual Accelerometer </h2>
+    <p>In addition to touch input, mobile devices also include support for motion-detection with a built-in accelerometer. The accelerometer measures rotation around all three axes, but x and y turn out to be most useful.</p>
+    <ul>
+      <li><strong>AccelName = new Accel()</strong> - Build a new accelerometer object called accelName. If the device does not support an accelerometer, nothing will happen (so you'll want to include some other input type, like the keyboard or buttons.) </li>
+      <li><strong>getAX()</strong> - Get acceleration around the X axis. Note that the X axis is side-to-side, so acceleration around this axis will often map to changes in Y.</li>
+      <li><strong>getAY()</strong> - Get the acceleration around the Y axis, which is vertical. Normally you'll map acceleration around Y to changes in an object's X or dx values.</li>
+      <li><strong>GetAZ()</strong> - Technically, this reads acceleration around the Z axis, which runs from the center of the screen to the user's nose. In reality, this is rarely used, as these rotations will usually also trigger an acceleration around Y. </li>
+      <li><strong>getRotX(), getRotY(), getRotZ()</strong> - These utility functions indicate the amount of rotation around each of the axes since the last frame. They are provided as a service, but normally the getAX() and getAY() functions are sufficient for handling most rotation situations.</li>
+    </ul>
+     
+    <p>See chapter 9 for more information on how to use the accelerometer for motion-sensing.</p>
+  </div>
+
+  <div class = "section shadow">
+    <h2>The Game Button</h2>
+    <p>The game button provides a convenient button which can be used in both desktop and mobile games. It is essentially a standard HTML button, but it is optimized for game programming, especially on mobile devices as an alternative to keyboard input. </p>
+    <ul>
+      <li><strong>buttonName = new GameButton(label)</strong> – Create a new button. The label text will become the text of the button.</li>
+     <li><strong>setPosition(x, y)</strong> – Sets the position of the button to the indicated screen coordinates. The button can be placed on the playing surface or anywhere else on the screen.</li>
+     <li><strong>setSize(width, height)</strong> – Sets the width and height of the button to the indicated values. Remember that buttons may be easier to hit if they are larger.</li>
+      <li><strong>isClicked()</strong> - Returns a true value if the button is currently clicked, or false if the button is not currently clicked. Use this method to easily check for button presses.</li>
+    </ul>
+    <p>Note that the label can be any valid HTML text, including plain text or an image (using the standard &lt;img> tag. You can also use CSS to style your labels (use the standard button style) to make them semi-transparent if you prefer. You can find complete discussion of the GameButton class in chapter 9.</p>
+  </div>
+
+  <div class = "section shadow">
+    <h2>Keyboard array</h2>
+
+    <p>The keyboard is a primary input mechanism for the simpleGame engine, so it's designed to be easy to use. As soon as the Scene is initialized, a special array called keysDown is created. There is an entry in this array for each of the main keys on the keyboard. Check the status of a key by using the keyboard constant as the index. The keyboard constants all begin with a capital K, followed by an underscore and the letter name. EG the A key is K_A, and B is K_B. In addition to the letter and number keys, the following keyboard constants are defined:</p>
+    <ul>
+      <li>K_UP</li>
+      <li>K_DOWN</li>
+      <li>K_LEFT</li>
+      <li>K_RIGHT</li>
+      <li>K_SPACE</li>
+      <li>K_ESC</li>
+      <li>K_PGUP</li>
+      <li>K_PGDOWN</li>
+      <li>K_HOME</li>
+      <li>K_END</li>
+    </ul>
+
+    <p>Note that these keys are defined for a standard US keyboard, and some behavior may be different on different keyboards. </p>
+
+    <p>This system (unlike standard JavaScript keyboard techniques) allows for multiple keys to be pressed at one time. </p>
+
+    </p>Chapter 5 describes how to read the keyboard.</p>
+  </div>
+</body>
+</html>

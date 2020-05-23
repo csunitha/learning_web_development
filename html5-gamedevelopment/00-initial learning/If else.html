@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>If else</title>
+		<script type="text/javascript">
+		function checkName() {
+			var txtName = document.getElementById("txtName");
+			name = txtName.value;
+			
+			var output = document.getElementById("lblOutput");
+			if (name == "who") {
+				output.innerHTML = "Some no one who knows";
+			}
+			else {
+				output.innerHTML = "go blah";
+			}
+		}
+		</script>
+
+	</head>
+	<body>
+		<form action="">
+			<fieldset>
+				<label for="txtName"> Enter name </label>
+				<input type="text" id="txtName"/>
+				<button type="button" onClick="checkName()">Click me!</button>
+				
+				<label id="lblOutput"> </label>
+			</fieldset>
+		</form>
+	</body>
+</html>

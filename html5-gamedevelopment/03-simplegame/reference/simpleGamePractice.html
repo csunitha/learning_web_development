@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>SimpleGame Practice tool</title>
+    <style type="text/css">
+        #input {
+            float: left;
+            width: 49%;
+        }
+        
+        #output {
+            float: left;
+            width: 49%;
+            font-family: monospace;
+            white-space: pre;
+            padding-left: 1em;
+            background-color: #cccccc;
+        }
+    </style>
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "simpleGameDoc.css">
+    <script type="text/javascript">
+        var txtVars;
+        var txtInit;
+        var txtUpdate;
+        var output;
+        
+        function init(){
+            //get access to form input
+            txtVars = document.getElementById("txtVars");
+            txtInit = document.getElementById("txtInit");
+            txtUpdate = document.getElementById("txtUpdate");
+            output = document.getElementById("output");
+        } // end init
+        
+        function run(){
+            //get contents from input elements
+            vars = txtVars.value;
+            initCode = txtInit.value;
+            updateCode = txtUpdate.value;
+            
+            //build code
+            code = "";
+            
+            //create HTML header
+            code += "<html lang=\"en-US\"> \n";
+            code += "<head> \n";
+            code += "    <meta charset=\"UTF-8\"> \n";
+            code += "    <title>SimpleGame Practice tool</title> \n";
+            code += "    <script type = \"text/javascript\" \n";
+            code += "            src = \"http://aharrisbooks.net/h5g/simpleGame_1_0.js\"> \n";
+            code += "    </";
+            code += "script> \n ";
+            code += "    <script type=\"text/javascript\">  \n";
+            
+            //add global vars
+            code += "//global variables \n";
+            code += vars.trim();
+            code += "\n\n";
+            
+            //add init function
+            code += "function init(){ \n";
+            code += initCode.trim();
+            code += "\n} // end init \n\n";
+            
+            //add update function
+            code += "function update(){ \n";
+            code += updateCode.trim();
+            code += "\n} // end update \n\n";
+            
+            //close up page
+            code += "<";
+            code += "/script> \n";
+            code += "</head> \n";
+            code += "<body onload = \"init()\"> \n";
+            code += "</body> \n";
+            code += "</html> \n";
+                       
+            //print out code
+            
+            output.innerHTML = code.replace(/</g, '&lt;');
+            
+            //pop it up. Seriously, we're making a popup on purpose...
+            newWindow = window.open("", "test", "height = 650, width = 850");
+            temp = newWindow.document;
+            temp.write(code);
+            temp.close();
+        } // end run
+
+        function car(){
+            // sets up the car demo
+            vars = "";
+            vars += "var scene; \n";
+            vars += "var car; \n";            
+            txtVars.value = vars;
+            
+            initCode = "";
+            initCode += "  scene = new Scene(); \n";
+            initCode += "  car= new Sprite(scene, \"http://aharrisbooks.net/h5g/h5g_5/car.png\", 40, 25); \n";
+            initCode += "  car.setSpeed(0); \n\n";
+
+            initCode += "   car.checkKeys = function(){ \n";
+            initCode += "    car.setSpeed(0); \n";
+            initCode += "    if (keysDown[K_UP]){ \n";
+            initCode += "      car.setSpeed(5); \n";
+            initCode += "    } // end if \n\n";
+
+            initCode += "    if (keysDown[K_LEFT]){ \n";
+            initCode += "      car.changeAngleBy(-5); \n";
+            initCode += "    } // end if \n\n";
+      
+            initCode += "    if (keysDown[K_RIGHT]){ \n";
+            initCode += "      car.changeAngleBy(5); \n";
+            initCode += "    } // end if \n";
+            initCode += "  } // end checkKeys \n";
+            initCode += "  scene.start(); \n";
+            txtInit.value = initCode;
+            
+            updateCode = "";
+            updateCode += "  scene.clear(); \n";
+            updateCode += "  car.checkKeys(); \n";
+            updateCode += "  car.update(); \n";
+            txtUpdate.value = updateCode;
+        } // end car function
+        
+        function coin(){
+            //create the coin-grabbing example
+            vars = "";
+            vars += "var scene; \n";
+            vars += "var car; \n";
+            vars += "var coin;\n";
+            vars += "var plingMp3;\n";
+            vars += "var plingOgg;\n";
+            txtVars.value = vars;
+            
+            initCode = "";
+            initCode += "  scene = new Scene(); \n";
+            initCode += "\n";
+            initCode += "  plingMp3 = new Sound(\"http://aharrisbooks.net/h5g/pling.mp3\");\n";
+            initCode += "  plingOgg = new Sound(\"http://aharrisbooks.net/h5g/pling.ogg\");\n";
+            initCode += "\n";
+            initCode += "  car= new Sprite(scene, \"http://aharrisbooks.net/h5g/h5g_5/car.png\", 100, 60); \n";
+            initCode += "  car.setSpeed(0); \n";
+            initCode += "\n";
+            initCode += "   car.checkKeys = function(){ \n";
+            initCode += "    this.setSpeed(0); \n";
+            initCode += "    if (keysDown[K_UP]){ \n";
+            initCode += "      this.setSpeed(10); \n";
+            initCode += "    } // end if \n";
+            initCode += "\n";
+            initCode += "    if (keysDown[K_LEFT]){ \n";
+            initCode += "      this.changeAngleBy(-5); \n";
+            initCode += "    } // end if \n";
+            initCode += "\n";
+            initCode += "    if (keysDown[K_RIGHT]){ \n";
+            initCode += "      this.changeAngleBy(5); \n";
+            initCode += "    } // end if \n";
+            initCode += "  } // end checkKeys \n";
+            initCode += "\n";
+            initCode += "  coin = new Sprite(scene, \"http://aharrisbooks.net/h5g/coin.svg\", 50, 50);\n";
+            initCode += "  coin.reset = function(){\n";
+            initCode += "    this.setSpeed(0);\n";
+            initCode += "    this.setX(Math.random() * scene.width);\n";
+            initCode += "    this.setY(Math.random() * scene.height);\n";
+            initCode += "  }\n";
+            initCode += "  coin.reset();\n";
+            initCode += "\n";
+            initCode += "  checkCollisions = function(){\n";
+            initCode += "    if (car.collidesWith(coin)){\n";
+            initCode += "      plingMp3.play();\n";
+            initCode += "      plingOgg.play();\n";
+            initCode += "      coin.reset();\n";
+            initCode += "    } // end if\n";
+            initCode += "  } // end checkCollisions\n";
+            initCode += "\n";
+            initCode += "  scene.start();\n";
+            txtInit.value = initCode;
+  
+            updateCode = "";
+            updateCode += "  scene.clear(); \n";
+            updateCode += "  car.checkKeys(); \n";
+            updateCode += "\n";
+            updateCode += "  checkCollisions();\n";
+            updateCode += "\n";
+            updateCode += "  coin.update();\n";
+            updateCode += "  car.update(); \n";
+            txtUpdate.value = updateCode;
+
+        } // end coin
+    
+    </script>    
+</head>
+<body onload = "init()">
+    <h1>SimpleGame Practice tool</h1>
+    <div id = "input">
+        <form action = "">
+            <fieldset>
+                <legend>vars</legend>
+                <textarea id = "txtVars"
+                          rows = "5"
+                          cols = "40">
+var scene;
+var ball;
+                </textarea>
+            </fieldset>
+    
+            <fieldset>
+                <legend>init</legend>
+                <textarea id = "txtInit"
+                          rows = "10"
+                          cols = "40">
+    scene = new Scene();
+    ball = new Sprite(scene, "http://aharrisbooks.net/h5g/h5g_13/pong/redBall.png", 50, 50);
+    scene.start();
+                </textarea>
+            </fieldset>
+            
+            <fieldset>
+                <legend>update</legend>
+                <textarea id = "txtUpdate"
+                          rows = "10"
+                          cols = "40">
+    scene.clear();
+    ball.update();
+                </textarea>
+            </fieldset>
+            
+            <button type = "button"
+                    onclick = "run()">
+                run
+            </button>
+            
+            <button type = "button"
+                    onclick = "car()">
+                car
+            </button>
+
+            <button type = "reset">ball</button>
+            
+            <button type = "button"
+                    onclick = "coin()">
+                coin
+            </button>
+            
+        </form>
+    </div>
+    
+    <div id = "output">
+        code appears here
+    </div>
+</body>
+</html>
