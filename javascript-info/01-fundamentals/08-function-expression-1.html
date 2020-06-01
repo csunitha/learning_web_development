@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Function Expressions</title>
+    <script type="text/javascript">
+      // Example 1
+      /**
+      Here, the function is created and assigned to the variable explicitly, like any other value. No matter how the function is defined, it’s just a value stored in the variable sayHi.
+      **/
+      let sayHi = function() {
+        alert("Hello");
+      };
+      alert(sayHi); // this returns function code
+      sayHi();  // this calls function
+
+      //Example 2 - can copy a function to another variable
+      function showMessage() {
+        alert("some message");
+      }
+      let anotherMessage = showMessage;
+      anotherMessage();
+      showMessage();
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

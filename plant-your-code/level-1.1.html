@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      /**
+       * Determines how many rows and columns your garden will
+       * need to be closest to a square given a number of seeds.
+       *
+       * @param {number} seedCount - The number of seeds in your
+       * seed packet.
+       * @return {array} - [rows, columns] needed for your grid
+       * layout (for example [4, 5] represents a 4 row x 5 column
+       * grid)
+      */
+
+      function grid(seedCount) {
+          /* Enter your solution here! */
+          let row, col;
+          let sqrt = Math.sqrt(seedCount);
+          let sqrt_floor = Math.floor(sqrt);
+          if(sqrt % sqrt_floor == 0) {
+            row = sqrt;
+            col = sqrt;
+          } else {
+            row = sqrt_floor;
+            col = row + 1;
+          }
+          return (new Array(row, col));
+      }
+
+      let response = grid(5);
+      alert (response);
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

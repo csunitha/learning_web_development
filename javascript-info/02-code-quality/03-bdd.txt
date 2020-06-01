@@ -1,0 +1,29 @@
+reference: https://javascript.info/testing-mocha
+
+Before creating a code, we need to imagine the function and describe it.
+This is called specification / spec.
+
+e.g of a spec for function pow
+------------------------------
+
+describe ("pow", function() {
+
+  it("raises to n-th power", function() {
+    assert.equal( pow(2,3), 8 );
+  });
+
+});
+
+Spec contains 3 building blocks
+-------------------------------
+  1. describe
+    What functionality we are describing
+          -> describe ("title", function() {...});
+    this is used to group "workers" - the it blocks
+
+  2. it
+    this has title the describes the test and function that test it
+          -> it("description of test", function() {...});
+
+  3. assert
+    the code inside the it block - if implementation correct should execute without errors.

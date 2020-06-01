@@ -1,0 +1,39 @@
+Learning material in the order
+	javascript.info - in progress
+	Head First HTML5 Programming - in progress
+	https://javascript30.com/
+	https://www.edx.org/course/javascript-introduction
+	https://developer.mozilla.org/en-US/docs/Web/JavaScript
+	https://developer.mozilla.org/en-US/docs/Web/Tutorials
+	https://www.linkedin.com/learning/paths/become-a-web-developer
+	ES6 for beginners - https://youtu.be/WZQc7RUAg18
+
+General anytime reference
+	https://www.freecodecamp.org/learn/
+	https://roadmap.sh/frontend
+
+Tools
+	https://unminify.com/
+	https://developers.google.com/web/tools/chrome-devtools
+	https://github.com/pa11y/pa11y => For accessibility automation
+
+Interesting articles for later time
+	https://opensource.com/article/20/5/open-source-javascript-frameworks
+	https://www.freecodecamp.org/news/web-scraping-using-nodejs-puppeteer/
+  https://simplestepscode.com/make-your-website-load-faster/
+	https://dev.to/fabcodingzest/how-to-get-started-with-web-development-front-end-part-1-5c6h
+
+Other References with challenges / examples / projects
+		https://plantyourcode.com/level/challenge
+		https://skillcrush.com/blog/projects-you-can-do-with-javascript/
+		https://dev.to/simonholdorf/9-awesome-projects-you-can-build-with-vanilla-javascript-2o1b
+		https://medium.mybridge.co/48-amazing-javascript-open-source-for-the-past-year-v-2019-ce51cdd10fb9
+		https://www.creativebloq.com/design/examples-svg-7112785
+
+YouTube
+	DevEd - https://www.youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q
+	Telusko - https://www.youtube.com/user/javaboynavin
+
+--------------------------------------------------------------------------------
+Completed items:
+  HTML5 Simple Game Programming Preparation (Udemy)- done

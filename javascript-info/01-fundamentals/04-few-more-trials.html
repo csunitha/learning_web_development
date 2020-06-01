@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>loops - for , while </title>
+    <script type="text/javascript">
+      /*
+      for (i=2; i<=10; i=i+2) {
+        alert("first variant " +  i);
+      }
+      for(i=2; i<=10; i++) {
+        if(i % 2 == 0 ) {
+          alert("second variant " + i);
+        }
+      }
+
+      let j = 0;
+      while (j < 3) {
+        alert(`while number ${j}`);
+        j++;
+      }
+      */
+      let number;
+      do {
+        number = +prompt("Enter number > 100", 0);
+        if(number > 100 || number == null ) {
+          break;
+        }
+      } while (number < 100);
+      //another alternate
+      do {
+        number = +prompt("Enter number > 100", 0);
+        }
+      } while (number <= 100 && number);
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

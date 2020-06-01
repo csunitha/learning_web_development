@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Usage of Label in loops</title>
+    <script type="text/javascript">
+
+      //here outer is the label
+      outer: for(let i=0; i < 3; i++) {
+        for(let j=0; j < 3; j++) {
+          let input = prompt(`Value at co-ordinates (${i},${j}) `);
+          if(!input) break outer;
+        }
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

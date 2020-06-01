@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Function</title>
+    <script type="text/javascript">
+
+      // Example 1 with 2 variants
+      function checkAgeVariant1(age) {
+        return (age > 18) ? true : confirm('Did parents allow you?');
+      }
+
+      function checkAgeVariant2(age) {
+        return (age > 18) ||  confirm('Did parents allow you?');
+      }
+
+      //Example 2
+      function min(a, b) {
+        return a < b ? a : b;
+      }
+
+      //Example 3
+      function pow (x, n) {
+        let result = x;
+        for(i = 1; i < n; i++) {
+          result *= x;
+        }
+        alert (result);
+      }
+      let x = prompt ("Enter x (a number) ");
+      let n = prompt ("Enter n (power of) ");
+      pow (x, n);
+
+      //Example 4 - for default value if no parameter passed
+      function showGreetings(name, greeting = "Hello") {
+        alert (greeting + " " + name);
+      }
+
+      //Example 5 - for default call another function if no parameter passed
+      function showMessage(message1, message2=anotherMessage()) {
+        // some code here
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

@@ -1,0 +1,28 @@
+Behaviour Driven Development(BDD)
+  BDD is three things in one - tests, documentation and examples.
+
+Chai
+  The library with many assertions. It allows to use a lot of different assertions.
+
+Headless Chrome
+  Headless Chrome is a way to run the Chrome Browser without actually running Chrome.
+  A headless browser is a great tool for automated testing and server environments where you don't need a visible UI shell. For example, you may want to run some tests against a real web page, create a PDF of it, or just inspect how the browser renders an URL.
+
+Linters
+  JSLint – one of the first linters.
+  JSHint – more settings than JSLint.
+  ESLint – probably the newest one.
+
+Mocha
+  The core framework: it provides common testing functions including describe and it and the main function that runs tests.
+
+Puppeteer is a Node library API that allows us to control headless Chrome.
+
+Sinon
+  A library to spy over functions, emulate built-in functions and more, we’ll need it much later.
+
+Style guides
+  Google JavaScript Style Guide
+  Airbnb JavaScript Style Guide
+  Idiomatic.JS
+  StandardJS
