@@ -12,6 +12,7 @@ General anytime reference
 	https://www.freecodecamp.org/learn/
 	https://roadmap.sh/frontend
 	https://www.frontendmentor.io/
+	https://codepen.io/
 
 Tools
 	https://unminify.com/
