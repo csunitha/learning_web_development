@@ -1,0 +1,31 @@
+<!-- 
+  here user does the same as above using a combination of toString and valueOf instead of Symbol.toPrimitive
+-->
+<html>
+  <head>
+  <script>
+    let user = {
+      name: "John",
+      money: 1000,
+
+      //for hint = "string"
+      toString() {
+        return `{name: ${this.name}}`;
+      },
+
+      //for hint = "number" or "default"
+      valueOf() {
+        return this.money;
+      }
+    };
+
+    // conversions demo:
+    alert(user); // hint: string -> {name: "John"}
+    alert(+user); // hint: number -> 1000
+    alert(user + 500); // hint: default -> 1500
+  </script>
+  </head>
+  <body>
+    
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!--
+Create a constructor function Calculator that creates objects with 3 methods:
+    read() asks for two values using prompt and remembers them in object properties.
+    sum() returns the sum of these properties.
+    mul() returns the multiplication product of these properties.
+
+-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://en.js.cx/test/libs.js"></script>
+    <script src="04-objects-constructor-test.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+    function Calculator() {
+      this.read = function() {
+        this.var1 = +prompt("var1");
+        this.var2 = +prompt("var2");
+      },
+      this.sum = function() {
+        return this.var1 + this.var2;
+      },
+      this.mul = function() {
+        return this.var1 * this.var2;
+      }
+
+    }
+
+    let calculator = new Calculator();
+    calculator.read();
+
+    alert( "Sum=" + calculator.sum() );
+    alert( "Mul=" + calculator.mul() );
+    </script>
+  </body>
+</html>

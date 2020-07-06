@@ -1,0 +1,26 @@
+<!-- 
+  here user does the same as above using a combination of toString and valueOf instead of Symbol.toPrimitive
+-->
+<html>
+  <head>
+  <script>
+    let user = {
+      name: "John",
+      money: 1000,
+
+      //for hint = "string"
+      toString() {
+        return this.name;
+      }
+   
+    };
+
+    // conversions demo:
+    alert(user); // toString -> John
+    alert(user + 500); // toString -> John500
+  </script>
+  </head>
+  <body>
+    
+  </body>
+</html>

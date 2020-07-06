@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://en.js.cx/test/libs.js"></script>
+    <script src="03-objects-methods-calculator-test.js" charset="utf-8"></script>
+    <title></title>
+  </head>
+  <body>
+    <!--
+    Create an object calculator with three methods:
+
+    read() prompts for two values and saves them as object properties.
+    sum() returns the sum of saved values.
+    mul() multiplies saved values and returns the result.
+    -->
+    <script type="text/javascript">
+      let calculator = {
+        read() {
+          this.val1 = +prompt("Enter a number as value 1");
+          this.val2 = +prompt("Enter a number as value 2");
+        },
+        sum() {
+          return this.val1 + this.val2;
+        },
+        mul() {
+          return this.val1 * this.val2;
+        }
+      };
+      calculator.read();
+      alert( calculator.sum() );
+      alert( calculator.mul() );
+    </script>
+  </body>
+</html>

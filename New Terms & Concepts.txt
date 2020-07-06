@@ -1,5 +1,21 @@
+Babel
+  When we use modern features of the language, some engines may fail to support such code. Just as said, not all features are implemented everywhere. Here Babel comes to the rescue. Babel is a transpiler. It rewrites modern JavaScript code into the previous standard.
+
+  Actually, there are two parts in Babel:
+
+  First, the transpiler program, which rewrites the code. The developer runs it on their own computer. It rewrites the code into the older standard. And then the code is delivered to the website for users. Modern project build systems like webpack provide means to run transpiler automatically on every code change, so that it’s very easy to integrate into development process.
+
+  Second, the polyfill. New language features may include new built-in functions and syntax constructs. The transpiler rewrites the code, transforming syntax constructs into older ones. But as for new built-in functions, we need to implement them. JavaScript is a highly dynamic language, scripts may add/modify any functions, so that they behave according to the modern standard. A script that updates/adds new functions is called “polyfill”. It “fills in” the gap and adds missing implementations.
+
+  Two interesting polyfills are:
+    core js that supports a lot, allows to include only needed features.
+    polyfill.io service that provides a script with polyfills, depending on the features and user’s browser.
+    
+  So, if we’re going to use modern language features, a transpiler and a polyfill are necessary.
+
 Behaviour Driven Development(BDD)
   BDD is three things in one - tests, documentation and examples.
+  Before writing code, we can imagine what function should do and describe it.
 
 Chai
   The library with many assertions. It allows to use a lot of different assertions.
@@ -16,6 +32,13 @@ Linters
 Mocha
   The core framework: it provides common testing functions including describe and it and the main function that runs tests.
 
+Media Query
+  Media query is a CSS technique introduced in CSS3. It uses the @media rule to include a block of CSS properties only if a certain condition is true. Media queries in CSS3 extended the CSS2 media types idea: Instead of looking for a type of device, they look at the capability of the device. Using media queries are a popular technique for delivering a tailored style sheet to desktops, laptops, tablets, and mobile phones (such as iPhone and Android phones).
+
+Polyfills
+  A script that updates/adds new functions is called “polyfill”. It “fills in” the gap and adds missing implementations.
+  More details on usage of polyfills refer section Babel
+
 Puppeteer is a Node library API that allows us to control headless Chrome.
 
 Sinon
@@ -26,3 +49,9 @@ Style guides
   Airbnb JavaScript Style Guide
   Idiomatic.JS
   StandardJS
+
+Transpiler
+  refer section Babel
+
+Webpack
+  refer section Babel
