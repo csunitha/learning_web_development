@@ -1,16 +1,29 @@
 # learning_web_development
-## 7-Jul-2020: freecodecamp: continuing wiht section Applied Visual Design lessons.
-few css syntax learned font-size, font-weight, line-height
-usage of pseudo classes
-introduction to css box model,  position (absolute, relative, fixed), css offset, 
-pushing elements - left or right with float property
-centering element with margin:auto
-complementary color - reference on RGB additive color model and CMY model
-  primary color = red, green, blue
-  secondary color = mixing 2 primary color
-  tertiary color = primary + one of the secondary color neighbour
-hsl() - hue, saturation, lightness 
-html - semantic elements - header, nav, section, aside
+## 8-Jul-2020:
+  freecodecamp: continuing the color theory. adjusting saturation, and lightness.  
+  background: linear-gradient(gradient_direction, color 1, color 2, color 3, ...)  
+  background: repeating-linear-gradient()  
+  background: url()   
+  transform -> scale, move, rotate, skew, etc   
+  box-shadow   
+  pseudo-elements -> ::before, ::after (to add something before or after a selected element)   
+  Animation properties -> 8 animation properties, animation-name, animation-duration, animation-fill-mode, animation-iteration-count     
+  @keyframes 
+     
+
+## 7-Jul-2020: 
+  freecodecamp: continuing with section Applied Visual Design lessons.   
+  few css syntax learned font-size, font-weight, line-height   
+  usage of pseudo classes   
+  introduction to css box model,  position (absolute, relative, fixed), css offset     
+  pushing elements - left or right with float property   
+  centering element with margin:auto   
+  complementary color - reference on RGB additive color model and CMY model   
+    * primary color = red, green, blue   
+    * secondary color = mixing 2 primary color   
+    * tertiary color = primary + one of the secondary color neighbour   
+  hsl() - hue, saturation, lightness    
+  html - semantic elements - header, nav, section, aside   
 
 ## 6-Jul-2020:
   Excited :) Created my first CSS work on my own. 02-yin-yang.html.
