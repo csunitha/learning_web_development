@@ -1,11 +1,27 @@
 # learning_web_development
+## 11-Jul-2020: 
+  freecodecamp: continuing on animation properties.   
+  animation properties -> animation-timing-function, with regular properties and using cubic-bezier.   
+  Completed Applied Visual design.   
+   
+  Starting Applied Accessibility lessons.   
+  * Text alternative for images
+  * Hierarchial relationship of content - appropriate header tags.   
+  * main, article, section, header, nav, footer    
+
+## 10-Jul-2020:
+  freecodecamp: more understanding on css offset - top, left (tried with creating a heart with rotating a square using transform and ::before and ::after with top and left offset)   
+  
+## 9-Jul-2020:
+  freecodecamp: animate with variable rates at different % in keyframes, different duration. 
+
 ## 8-Jul-2020:
   freecodecamp: continuing the color theory. adjusting saturation, and lightness.  
   background: linear-gradient(gradient_direction, color 1, color 2, color 3, ...)  
   background: repeating-linear-gradient()  
   background: url()   
   transform -> scale, move, rotate, skew, etc   
-  box-shadow   
+  box-shadow (can use this to create a cresent moon)   
   pseudo-elements -> ::before, ::after (to add something before or after a selected element)   
   Animation properties -> 8 animation properties, animation-name, animation-duration, animation-fill-mode, animation-iteration-count     
   @keyframes 
