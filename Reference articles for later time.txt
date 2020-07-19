@@ -13,6 +13,7 @@ General anytime reference
 	https://roadmap.sh/frontend
 	https://www.frontendmentor.io/
 	https://codepen.io/
+	https://blog.bitsrc.io/
 
 Tools
 	https://unminify.com/

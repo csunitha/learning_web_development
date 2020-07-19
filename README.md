@@ -1,4 +1,43 @@
 # learning_web_development
+## 19-Jul-2020:
+  freecodecamp: completed Applied Accessibility lessons.  
+  * high contrast text   
+  * color contrast  
+  * descriptive link text   
+  * navigable keys using accesskey attribute 
+  * tabindex    
+      
+  Responsive web design principles.   
+  Responsive Web Design is an approach to designing web content that responds to the constraints of different devices.   
+  * Media Query -> technique that change presentation of content based on viewport size.   
+  * viewport -> viewport is user's visible area of web page.  
+
+  @media to specify css based on definition.   
+  making image responsive using max-width 100% and height auto.   
+  retina image for higher resolution. (define width and height half of the original)  
+  responsive typography using viewport units.  
+
+  4 different view port units 
+  * vw (viewport width)  
+  * vh (viewport height)  
+  * vmin (viewport min)   
+  * vmax (viewport max)   
+
+  completed responsive web design principles. 
+
+## 18-Jul-2020: 
+  freecodecamp: continuing Applied Accessibility lessons.  
+  * figure, figcaption (see camper-cat.html)  
+  * usage of for attribute in labels for text  
+  * fieldset, legend for grouping buttons (see deep-thoughts.html)   
+  * time, datetime (see date-time.html)   
+  * screen reader only data using css (see screen-reader-only-css.html)   
+    - display: none; or visibility: hidden; hides content for everyone, including screen reader users   
+    - Zero values for pixel sizes, such as width: 0px; height: 0px; removes that element from the flow of your document, meaning screen readers will ignore it.   
+
+## 12-Jul-2020:  
+  freecodecamp: Continuing Applied Accessibility lessons. 
+
 ## 11-Jul-2020: 
   freecodecamp: continuing on animation properties.   
   animation properties -> animation-timing-function, with regular properties and using cubic-bezier.   
